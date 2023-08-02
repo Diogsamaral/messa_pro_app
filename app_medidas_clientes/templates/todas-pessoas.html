@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha Página</title>
+</head>
+<body>
+    <h1>Informações do Banco de Dados:</h1>
+    <ul>
+        {% for registro in registros %}
+            <li>{{ registro.nome }}, {{ registro.email }}, {{ registro.contato }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

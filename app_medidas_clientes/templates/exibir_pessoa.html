@@ -1,0 +1,31 @@
+
+{% block content %}
+    {% if pessoa %}
+        <h2>Detalhes da Pessoa</h2>
+
+        <ul>
+            <li><strong>Nome:</strong> {{ pessoa.nome }}</li>
+            <li><strong>Email:</strong> {{ pessoa.email }}</li>
+            <li><strong>Contato:</strong> {{ pessoa.contato }}</li>
+            <li><strong>Empresa:</strong> {{ pessoa.empresa }}</li>
+            <li><strong>Ombro a Ombro:</strong> {{ pessoa.ombro_ombro }}</li>
+            <li><strong>Tórax/Busto:</strong> {{ pessoa.torax_busto }}</li>
+            <li><strong>Cintura Alta:</strong> {{ pessoa.cintura_alta }}</li>
+            <li><strong>Cintura Baixa:</strong> {{ pessoa.cintura_baixa }}</li>
+            <li><strong>Quadril:</strong> {{ pessoa.quadril }}</li>
+            <li><strong>Altura do Corpo:</strong> {{ pessoa.altura_corpo }}</li>
+            <li><strong>Comp. Camisa (ete):</strong> {{ pessoa.comp_camisa }}</li>
+            <li><strong>Comp. Blazer:</strong> {{ pessoa.comp_blazer }}</li>
+            <li><strong>Comp. Vestido:</strong> {{ pessoa.comp_vestido }}</li>
+            <li><strong>Comp. Manga Curta:</strong> {{ pessoa.comp_manga_curta }}</li>
+            <li><strong>Comp. Manga Longa:</strong> {{ pessoa.comp_manga_longa }}</li>
+            <li><strong>Larg. Braço:</strong> {{ pessoa.larg_braco }}</li>
+            <li><strong>Punho:</strong> {{ pessoa.punho }}</li>
+            <li><strong>Larg. Perna:</strong> {{ pessoa.larg_perna }}</li>
+            <li><strong>Comp. Saia:</strong> {{ pessoa.comp_saia }}</li>
+            <li><strong>Comp. Calça:</strong> {{ pessoa.comp_calca }}</li>
+        </ul>
+    {% else %}
+        <p>Pessoa não encontrada.</p>
+    {% endif %}
+{% endblock %}

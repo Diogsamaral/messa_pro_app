@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Pessoa</title>
+</head>
+<body>
+    <h1>Cadastro de Pessoa</h1>
+    <form method="POST" action="{% url 'cadastro-pessoa' %}">
+        {% csrf_token %}
+
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="contato">Contato:</label>
+        <input type="text" id="contato" name="contato" required><br><br>
+
+        <label for="empresa">Empresa:</label>
+        <input type="text" id="empresa" name="empresa" required><br><br>
+
+        <label for="ombro_ombro">Ombro a Ombro:</label>
+        <input type="text" id="ombro_ombro" name="ombro_ombro"><br><br>
+
+        <label for="torax_busto">Tórax/Busto:</label>
+        <input type="text" id="torax_busto" name="torax_busto"><br><br>
+
+        <label for="cintura_alta">Cintura Alta:</label>
+        <input type="text" id="cintura_alta" name="cintura_alta"><br><br>
+
+        <label for="cintura_baixa">Cintura Baixa:</label>
+        <input type="text" id="cintura_baixa" name="cintura_baixa"><br><br>
+
+        <label for="quadril">Quadril:</label>
+        <input type="text" id="quadril" name="quadril"><br><br>
+
+        <label for="altura_corpo">Altura do Corpo:</label>
+        <input type="text" id="altura_corpo" name="altura_corpo"><br><br>
+
+        <label for="comp_camisa">Comprimento da Camisa:</label>
+        <input type="text" id="comp_camisa" name="comp_camisa"><br><br>
+
+        <label for="comp_blazer">Comprimento do Blazer:</label>
+        <input type="text" id="comp_blazer" name="comp_blazer"><br><br>
+
+        <label for="comp_vestido">Comprimento do Vestido:</label>
+        <input type="text" id="comp_vestido" name="comp_vestido"><br><br>
+
+        <label for="comp_manga_curta">Comprimento da Manga Curta:</label>
+        <input type="text" id="comp_manga_curta" name="comp_manga_curta"><br><br>
+
+        <label for="comp_manga_longa">Comprimento da Manga Longa:</label>
+        <input type="text" id="comp_manga_longa" name="comp_manga_longa"><br><br>
+
+        <label for="larg_braco">Largura do Braço:</label>
+        <input type="text" id="larg_braco" name="larg_braco"><br><br>
+
+        <label for="punho">Punho:</label>
+        <input type="text" id="punho" name="punho"><br><br>
+
+        <label for="larg_perna">Largura de Perna:</label>
+        <input type="text" id="larg_perna" name="larg_perna"><br><br>
+
+        <label for="comp_saia">Comprimento Saia:</label>
+        <input type="text" id="comp_saia" name="comp_saia"><br><br>
+
+        <label for="comp_calca">Comprimento Calça:</label>
+        <input type="text" id="comp_calca" name="comp_calca"><br><br>
+
+
+        <button type="submit">Cadastrar</button>
+        
+    </form>
+</body>
+</html>

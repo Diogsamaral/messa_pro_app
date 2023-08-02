@@ -1,0 +1,20 @@
+<form method="GET" action="{% url 'buscar_pessoas' %}">
+    <input type="text" name="query" placeholder="Digite um nome">
+    <button type="submit">Buscar</button>
+</form>
+
+
+
+{% block content %}
+    <h2>Resultados da pesquisa:</h2>
+
+    {% if resultados %}
+        <ul>
+            {% for pessoa in resultados %}
+                <li><a href="{% url 'detalhes_pessoa' pessoa.id %}">{{ pessoa.nome }}, {{ pessoa.email }}, {{ pessoa.contato }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+{% endblock %}
