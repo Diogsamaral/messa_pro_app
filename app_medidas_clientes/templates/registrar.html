@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Pessoa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        input[type="text"], input[type="email"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        #observacao {
+            height: 10em;
+            width: 20em;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Registrar Novo Usuário</h1>
+    <form method="POST" action="{% url 'registrar' %}">
+        {% csrf_token %}
+
+        <h2>Para registrar preencha o formulário abaixo</h2>
+        <label for="primeiro_nome">Nome:</label>
+        <input type="text" id="primeiro_nome" name="first_name" required><br><br>
+
+        <label for="segundo_nome">Sobrenome:</label>
+        <input type="text" id="segundo_nome" name="last_name" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="senha">Senha:</label>
+        <input type="text" id="senha" name="password"><br><br>
+
+        <label for="confirmar_senha">Confirmar senha:</label>
+        <input type="text" id="confirmar_senha" name="confirm_password"><br><br>
+
+        
+        <button type="submit">Registrar</button>
+        <br>
+        <br>
+        <div>
+            {% for message in messages %}
+            <div>
+                {{message}}
+            </div>
+            {% endfor %}
+        </div>
+
+    </form>
+</body>
+</html>

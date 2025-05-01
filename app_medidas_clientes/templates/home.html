@@ -1,10 +1,7 @@
-{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-
     <title>Messa.Pro</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'app_medidas_clientes/busca.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -16,10 +13,19 @@
             margin: 20px;
         }
 
-        input[type="text"], input[type="email"] {
+        input[type="text"], input[type="email"], input[type="number"] {
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
 
         button[type="submit"] {
@@ -47,13 +53,15 @@
     </style>
 </head>
 <body>
-    {% block content %}
-    <h2>Informações do Banco de Dados:</h2>
-    <ul>
-        {% for registro in registros %}
-            <li>{{ registro.nome }}, {{ registro.email }}, {{ registro.contato }}</li>
-        {% endfor %}
-    </ul>
-    {% endblock %}
+    <!-- Conteúdo comum a todas as páginas -->
+    <nav>
+        <a href="{% url 'registrar' %}">
+            <button>Criar Conta</button>
+        </a>
+
+        <a href="{% url 'login' %}">
+            <button>Login</button>
+        </a>
+    </nav>
 </body>
 </html>

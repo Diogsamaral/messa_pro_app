@@ -1,20 +1,189 @@
-<form method="GET" action="{% url 'buscar_pessoas' %}">
-    <input type="text" name="query" placeholder="Digite um nome">
-    <button type="submit">Buscar</button>
-</form>
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Messa.Pro</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app_medidas_clientes/busca.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        button {
+            margin: 10px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 0.6em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
 
 
+        h1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding-top: 3em;
+            background-color: #f7f7f7;
+        }
 
-{% block content %}
+        form {
+            margin: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 20vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        .container {
+            width: 50%;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+
+        h2, p {
+            margin: 0;
+            padding-top: 1em;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+
+        }
+
+        section {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        /* Estilos padrão */
+
+        /* Estilos para telas menores (celulares) */
+        @media (max-width: 820px) {
+            body {
+                font-size: 1em;
+            }
+
+            button {
+                padding: 15px;
+                margin: 5px;
+            }
+
+            section {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 1em; /* Ajuste o tamanho conforme necessário */
+            }
+            h2 {
+                font-size: 0.7px;
+            }
+            h3 {
+                font-size: 0.6px;
+            }
+            p, a {
+                font-size:0.5em;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">
+                <button>Sair</button>
+            </a>
+        {% endif %}
+    </nav>
+    <h1>MESSA.PRO</h1>
+    <form method="GET" action="{% url 'buscar_pessoas' %}">
+        <input type="text" name="query" placeholder="Nome, Empresa ou Artigo">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <section>
+         <!-- Adicione os botões abaixo do formulário -->
+        <a href="{% url 'cadastro-pessoa' %}">
+            <button>Cadastrar Pessoa</button>
+        </a>
+        <a href="{% url 'novo_tecido' %}">
+            <button>Novo Tecido</button>
+        </a>
+        <a href="{% url 'novo_aviamento' %}">
+            <button>Novo Aviamento</button>
+        </a>
+    </section>
+
+
     <h2>Resultados da pesquisa:</h2>
 
     {% if resultados %}
         <ul>
             {% for pessoa in resultados %}
-                <li><a href="{% url 'detalhes_pessoa' pessoa.id %}">{{ pessoa.nome }}, {{ pessoa.email }}, {{ pessoa.contato }}</a></li>
+                <li><a href="{% url 'detalhes_pessoa' pessoa.id %}">{{ pessoa.nome }}, {{ pessoa.email }}, {{ pessoa.empresa }}</a></li>
             {% endfor %}
         </ul>
+        
     {% else %}
         <p>Nenhum resultado encontrado.</p>
     {% endif %}
-{% endblock %}
+
+    <h2>Tecidos</h2>
+    {% if tecidos %}
+        <ul>
+            {% for tecido in tecidos %}
+            <li>{{ tecido.artigo }}, {{ tecido.metragem }}, {{ tecido.cor }}</a></li>
+            {% endfor %}
+        </ul>
+        
+    {% else %}
+        <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+
+    <h2>Aviamentos</h2>
+    {% if aviamentos %}
+        <ul>
+            {% for aviamento in aviamentos %}
+                <li>{{ aviamento.artigo }}, {{ aviamento.quantidade }}, {{aviamento.cor}} </li>
+            {% endfor %}
+        </ul>
+        
+    {% else %}
+        <p>Nenhum resultado encontrado.</p>
+    {% endif %}
+
+</body>
+</html>

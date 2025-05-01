@@ -4,7 +4,6 @@
 <head>
 
     <title>Messa.Pro</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'app_medidas_clientes/busca.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -16,7 +15,7 @@
             margin: 20px;
         }
 
-        input[type="text"], input[type="email"] {
+        input[type="text"], input[type="email"], input[type="number"] {
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -47,13 +46,12 @@
     </style>
 </head>
 <body>
-    {% block content %}
-    <h2>Informações do Banco de Dados:</h2>
-    <ul>
-        {% for registro in registros %}
-            <li>{{ registro.nome }}, {{ registro.email }}, {{ registro.contato }}</li>
-        {% endfor %}
-    </ul>
-    {% endblock %}
+    <!-- novo_tecido.html -->
+    <h1>Novo Aviamento</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Adicionar Aviamento</button>
+    </form>
 </body>
 </html>

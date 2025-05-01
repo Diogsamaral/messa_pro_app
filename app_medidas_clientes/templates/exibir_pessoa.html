@@ -1,9 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
 
-{% block content %}
+    <title>Messa.Pro</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'app_medidas_clientes/busca.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        input[type="text"], input[type="email"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        #observacao {
+            height: 10em;
+            width: 20em;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    {% block content %}
     {% if pessoa %}
         <h2>Detalhes da Pessoa</h2>
 
         <ul>
+            <h2>Medidas</h2>
+            <br>
             <li><strong>Nome:</strong> {{ pessoa.nome }}</li>
             <li><strong>Email:</strong> {{ pessoa.email }}</li>
             <li><strong>Contato:</strong> {{ pessoa.contato }}</li>
@@ -24,8 +81,27 @@
             <li><strong>Larg. Perna:</strong> {{ pessoa.larg_perna }}</li>
             <li><strong>Comp. Saia:</strong> {{ pessoa.comp_saia }}</li>
             <li><strong>Comp. Calça:</strong> {{ pessoa.comp_calca }}</li>
+            <h2>Peças</h2>
+            <br>
+            <li><strong>Blazer:</strong> {{ pessoa.tamanho_blazer }}</li>
+            <li><strong>Jaqueta:</strong> {{ pessoa.tamanho_jaqueta }}</li>
+            <li><strong>Calça Social:</strong> {{ pessoa.tamanho_calca_social }}</li>
+            <li><strong>Calça Cigarrete:</strong> {{ pessoa.tamanho_calca_cigarrete }}</li>
+            <li><strong>Calça Jeans:</strong> {{ pessoa.tamanho_calca_jeans }}</li>
+            <li><strong>Saia:</strong> {{ pessoa.tamanho_saia }}</li>
+            <li><strong>Gilet:</strong> {{ pessoa.tamanho_gilet }}</li>
+            <li><strong>Camisa S/M:</strong> {{ pessoa.tamanho_camisa_sem_manga }}</li>
+            <li><strong>Camisa M/C:</strong> {{ pessoa.tamanho_camisa_manga_curta }}</li>
+            <li><strong>Camisa M/L:</strong> {{ pessoa.tamanho_camisa_manga_longa }}</li>
+            <li><strong>Camisa Manga 3/4:</strong> {{ pessoa.tamanho_camisa_manga_3_4 }}</li>
+            <li><strong>Blusa:</strong> {{ pessoa.tamanho_blusa }}</li>
+            <li><strong>Jaleco:</strong> {{ pessoa.tamanho_jaleco }}</li>
+            <li><strong>Observações:</strong> {{ pessoa.observacao }}</li>
+
         </ul>
     {% else %}
         <p>Pessoa não encontrada.</p>
     {% endif %}
-{% endblock %}
+    {% endblock %}
+</body>
+</html>

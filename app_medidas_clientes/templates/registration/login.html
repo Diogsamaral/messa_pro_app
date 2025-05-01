@@ -1,10 +1,10 @@
-{% load static %}
-<!DOCTYPE html>
-<html>
-<head>
+<!-- templates/registration/login.html -->
 
-    <title>Messa.Pro</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'app_medidas_clientes/busca.css' %}">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -16,7 +16,7 @@
             margin: 20px;
         }
 
-        input[type="text"], input[type="email"] {
+        input[type="text"], input[type="email"], input[type="number"], input[type="password"] {
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
@@ -45,15 +45,25 @@
         }
 
     </style>
+    <title>Login</title>
 </head>
 <body>
-    {% block content %}
-    <h2>Informações do Banco de Dados:</h2>
-    <ul>
-        {% for registro in registros %}
-            <li>{{ registro.nome }}, {{ registro.email }}, {{ registro.contato }}</li>
-        {% endfor %}
-    </ul>
-    {% endblock %}
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    {% if form.errors %}
+        <p class="error-message">{{ form.non_field_errors }}</p>
+    {% endif %}
+
+    <!-- Adicione instruções de impressão -->
+    {% if form.is_bound %}
+        <p>Formulário está vinculado e contém os seguintes dados: {{ form.cleaned_data }}</p>
+    {% endif %}
+
 </body>
 </html>
+
+

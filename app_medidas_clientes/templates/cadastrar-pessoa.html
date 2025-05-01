@@ -2,12 +2,58 @@
 <html>
 <head>
     <title>Cadastro de Pessoa</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+        }
+
+        form {
+            margin: 20px;
+        }
+
+        input[type="text"], input[type="email"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button[type="submit"] {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        #observacao {
+            height: 10em;
+            width: 20em;
+        }
+
+    </style>
 </head>
 <body>
     <h1>Cadastro de Pessoa</h1>
     <form method="POST" action="{% url 'cadastro-pessoa' %}">
         {% csrf_token %}
 
+        <h2>Medidas</h2>
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required><br><br>
 
@@ -68,9 +114,53 @@
         <label for="comp_calca">Comprimento Calça:</label>
         <input type="text" id="comp_calca" name="comp_calca"><br><br>
 
+        <h2>Peças</h2>
 
-        <button type="submit">Cadastrar</button>
+        <label for="tamanho_blazer">Blazer:</label>
+        <input type="text" id="tamanho_blazer" name="tamanho_blazer"><br><br>
+
+        <label for="tamanho_jaqueta">Jaqueta:</label>
+        <input type="text" id="tamanho_jaqueta" name="tamanho_jaqueta"><br><br>
+
+        <label for="tamanho_calca_social">Calça Social:</label>
+        <input type="text" id="tamanho_calca_social" name="tamanho_calca_social"><br><br>
+
+        <label for="tamanho_calca_cigarrete">Calça Cigarrete:</label>
+        <input type="text" id="tamanho_calca_cigarrete" name="tamanho_calca_cigarrete"><br><br>
+
+        <label for="tamanho_calca_jeans">Calça Jeans:</label>
+        <input type="text" id="tamanho_calca_jeans" name="tamanho_calca_jeans"><br><br>
+
+        <label for="tamanho_saia">Saia:</label>
+        <input type="text" id="tamanho_saia" name="tamanho_saia"><br><br>
+
+        <label for="tamanho_gilet">Gilet:</label>
+        <input type="text" id="tamanho_gilet" name="tamanho_gilet"><br><br>
+
+        <label for="tamanho_camisa_sem_manga">Camisa S/M:</label>
+        <input type="text" id="tamanho_camisa_sem_manga" name="tamanho_camisa_sem_manga"><br><br>
+
+        <label for="tamanho_camisa_manga_curta">Camisa M/C:</label>
+        <input type="text" id="tamanho_camisa_manga_curta" name="tamanho_camisa_manga_curta"><br><br>
         
+        <label for="tamanho_camisa_manga_longa">Camisa M/L:</label>
+        <input type="text" id="tamanho_camisa_manga_longa" name="tamanho_camisa_manga_longa"><br><br>
+
+        <label for="tamanho_camisa_manga_3_4">Camisa Manga 3/4:</label>
+        <input type="text" id="tamanho_camisa_manga_3_4" name="tamanho_camisa_manga_3_4"><br><br>
+
+        <label for="tamanho_blusa">Blusa:</label>
+        <input type="text" id="tamanho_blusa" name="tamanho_blusa"><br><br>
+
+        <label for="tamanho_jaleco">Jaleco:</label>
+        <input type="text" id="tamanho_jaleco" name="tamanho_jaleco"><br><br>
+
+        <label for="observacao">Obervações:</label>
+        <textarea id="observacao" name="observacao" placeholder="Observações das peças"></textarea><br><br>
+
+        
+        <button type="submit">Cadastrar</button>
+
     </form>
 </body>
 </html>
